@@ -26,7 +26,7 @@ set techleffile=""
 # if the standard cell set has multiple cells with different drive
 # strengths.  Comment out any cells that do not exist.
 
-set flopcell=DFFPOSX1	;# Standard positive-clocked DFF, no set or reset
+set flopcell=dff1	;# Standard positive-clocked DFF, no set or reset
 # set flopset=DFFS	;# DFF with preset, if available
 # set flopreset=DFFSR	;# DFF with clear, if available
 #set flopsetreset=DFFSR	;# DFF with both set and clear
@@ -36,9 +36,9 @@ set setpininvert=1	;# Set this to 1 if the set pin is inverted (!set)
 set resetpininvert=1	;# Set this to 1 if the reset pin is inverted (!reset)
 set floppinout=Q	;# Name of the output pin on DFFs
 set floppinin=D		;# Name of the output pin on DFFs
-set floppinclk=CLK	;# Name of the clock pin on DFFs
+set floppinclk=CK	;# Name of the clock pin on DFFs
 
-set bufcell=BUFX2	;# Minimum drive strength buffer cell
+set bufcell=buf1	;# Minimum drive strength buffer cell
 set bufpin_in=A		;# Name of input port to buffer cell
 set bufpin_out=Y	;# Name of output port to buffer cell
 #set inverter=INVX1	;# Minimum drive strength inverter cell
@@ -48,7 +48,7 @@ set bufpin_out=Y	;# Name of output port to buffer cell
 #set norpin_in1=A	;# Name of first input pin to NOR gate
 #set norpin_in2=B	;# Name of second input pin to NOR gate
 #set norpin_out=Y	;# Name of output pin from OR gate
-set nandgate=NAND2X1	;# 2-input NAND gate, minimum drive strength
+set nandgate=na21	;# 2-input NAND gate, minimum drive strength
 set nandpin_in1=A	;# Name of first input pin to NAND gate
 set nandpin_in2=B	;# Name of second input pin to NAND gate
 set nandpin_out=Y	;# Name of output pin from NAND gate

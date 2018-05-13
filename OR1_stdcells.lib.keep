@@ -1,0 +1,33 @@
+library(OpenRule1um) {
+/* 9: buf1 */
+  cell(buf1) {
+    pin(A) { direction: input; }
+    pin(Y) { direction: output;
+              function: "A"; }
+  }
+
+/* 14: dff1 */
+  cell(dff1) {
+    ff(IQ, IQN) { clocked_on: CK;
+                  next_state: D; }
+    pin(CLK) { direction: input;
+                 clock: true; }
+    pin(D) { direction: input; }
+    pin(Q) { direction: output;
+              function: "IQ"; }
+  }
+
+/* 18: inv1 */
+  cell(inv1) {
+    pin(A) { direction: input; }
+    pin(YB) { direction: output;
+              function: "(!A)"; }
+  }
+/* 22: na21 */
+  cell(na21) {
+    pin(A) { direction: input; }
+    pin(B) { direction: input; }
+    pin(Y) { direction: output;
+              function: "(!(A&B))"; }
+  }
+}
