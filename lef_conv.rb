@@ -41,12 +41,19 @@ def read_lef lines
           port_type[port_count] = 'PATH'
         end
         if pl=~/(PATH|POLYGON)[^;]*$/
-          ports[port_count] << pl.chomp + l.strip + "\n"
+          ports[port_count] << pl.chomp + l.strip.sub(/  ;$/, ' ;') + "\n"
           l = nil
+        elsif pl=~/RECT /
+          ports[port_count] << pl.sub(/  ;$/, ' ;')
         else
           ports[port_count] << pl if pl
         end
       end
+    elsif pl=~/(PATH|POLYGON)[^;]*$/
+      puts pl.chomp + l.strip.sub(/  ;$/, ' ;')
+      l = nil
+    elsif pl=~/RECT /
+      puts pl.sub(/  ;$/, ' ;')
     elsif pl=~/PORT/
       ports[port_count] = pl
       flag_port = true
