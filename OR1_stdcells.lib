@@ -82,7 +82,7 @@ library(OpenRule1um) {
   cell(exnr) {
     pin(A) { direction: input; }
     pin(B) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!(A^B))"; }
   }
 
@@ -97,28 +97,28 @@ library(OpenRule1um) {
 /* 18: inv1 */
   cell(inv1) {
     pin(A) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!A)"; }
   }
 
 /* 19: inv2 */
   cell(inv2) {
     pin(A) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!A)"; }
   }
  
 /* 20: inv4 */
   cell(inv4) {
     pin(A) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!A)"; }
   }
  
 /* 21: inv8 */
   cell(inv8) {
     pin(A) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!A)"; }
   }
 
@@ -126,7 +126,7 @@ library(OpenRule1um) {
   cell(na21) {
     pin(A) { direction: input; }
     pin(B) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!(A&B))"; }
   }
 
@@ -135,7 +135,7 @@ library(OpenRule1um) {
     pin(A0) { direction: input; }
     pin(A1) { direction: input; }
     pin(B0) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!((A0|A1)&B0))"; }
   }
 
@@ -145,7 +145,7 @@ library(OpenRule1um) {
     pin(A1) { direction: input; }
     pin(B0) { direction: input; }
     pin(B1) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!((A0|A1)&(B0|B1)))"; }
   }
 
@@ -154,7 +154,7 @@ library(OpenRule1um) {
     pin(A) { direction: input; }
     pin(B) { direction: input; }
     pin(C) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!((A&B)&C))"; }
   }
            
@@ -164,7 +164,7 @@ library(OpenRule1um) {
     pin(B) { direction: input; }
     pin(C) { direction: input; }
     pin(D) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!((A&B)&(C&D)))"; }
   }
            
@@ -172,7 +172,7 @@ library(OpenRule1um) {
   cell(nr21) {
     pin(A) { direction: input; }
     pin(B) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!(A|B))"; }
   }
            
@@ -181,7 +181,7 @@ library(OpenRule1um) {
     pin(A0) { direction: input; }
     pin(A1) { direction: input; }
     pin(B0) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!((A0&A1)|B0))"; }
   }
 
@@ -191,7 +191,7 @@ library(OpenRule1um) {
     pin(A1) { direction: input; }
     pin(B0) { direction: input; }
     pin(B1) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!((A0&A1)|(B0&B1)))"; }
   }
 
@@ -200,7 +200,7 @@ library(OpenRule1um) {
     pin(A) { direction: input; }
     pin(B) { direction: input; }
     pin(C) { direction: input; }
-    pin(Y) { direction: output;
+    pin(YB) { direction: output;
               function: "(!((A|B)|C))"; }
   }
 
