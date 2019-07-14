@@ -42,168 +42,168 @@ LAYER cc
  SPACING	0.9 ;
 END cc
 
-LAYER metal1
+LAYER ML1
  TYPE		ROUTING ;
  DIRECTION	HORIZONTAL ;
  PITCH		2 ;
  OFFSET	1 ;
- WIDTH		0.6 ;
- SPACING	0.6 ;
+ WIDTH		1 ;
+ SPACING	1 ;
  RESISTANCE	RPERSQ 0.07 ;
  CAPACITANCE	CPERSQDIST 3e-05 ;
-END metal1
+END ML1
 
 LAYER via1
  TYPE	CUT ;
- SPACING	0.6 ;
+ SPACING	0.5 ;
 END via1
 
-LAYER metal2
+LAYER ML2
  TYPE		ROUTING ;
  DIRECTION	VERTICAL ;
- PITCH		1.6 ;
- OFFSET	0.8 ;
- WIDTH		0.6 ;
- SPACING	0.6 ;
+ PITCH		2 ;
+ OFFSET	1 ;
+ WIDTH		1 ;
+ SPACING	1 ;
  RESISTANCE	RPERSQ 0.07 ;
  CAPACITANCE	CPERSQDIST 1.7e-05 ;
-END metal2
+END ML2
 
 LAYER via2
  TYPE	CUT ;
- SPACING	0.6 ;
+ SPACING	0.5 ;
 END via2
 
-LAYER metal3
+LAYER ML3
  TYPE		ROUTING ;
  DIRECTION	HORIZONTAL ;
  PITCH		2 ;
  OFFSET	1 ;
- WIDTH		0.6 ;
- SPACING	0.6 ;
+ WIDTH		1 ;
+ SPACING	1 ;
  RESISTANCE	RPERSQ 0.07 ;
  CAPACITANCE	CPERSQDIST 7e-06 ;
-END metal3
+END ML3
 
 LAYER via3
  TYPE	CUT ;
- SPACING	0.8 ;
+ SPACING	0.5 ;
 END via3
 
-LAYER metal4
- TYPE		ROUTING ;
- DIRECTION	VERTICAL ;
- PITCH		3.2 ;
- OFFSET	1.6 ;
- WIDTH		1.2 ;
- SPACING	1.2 ;
- RESISTANCE	RPERSQ 0.04 ;
- CAPACITANCE	CPERSQDIST 4e-06 ;
-END metal4
+#LAYER metal4
+# TYPE		ROUTING ;
+# DIRECTION	VERTICAL ;
+# PITCH		3.2 ;
+# OFFSET	1.6 ;
+# WIDTH		1.2 ;
+# SPACING	1.2 ;
+# RESISTANCE	RPERSQ 0.04 ;
+# CAPACITANCE	CPERSQDIST 4e-06 ;
+#END metal4
 
 VIA M2_M1 DEFAULT
- LAYER metal1 ;
-  RECT -0.400 -0.400 0.400 0.400 ;
+ LAYER ML1 ;
+  RECT -1.0 -1.0 1.0 1.0 ;
  LAYER via1 ;
-  RECT -0.200 -0.200 0.200 0.200 ;
- LAYER metal2 ;
-  RECT -0.400 -0.400 0.400 0.400 ;
+  RECT -0.5 -0.5 0.5 0.5 ;
+ LAYER ML2 ;
+  RECT -1.0 -1.0 1.0 1.0 ;
 END M2_M1
 
 VIA M3_M2 DEFAULT
- LAYER metal2 ;
-  RECT -0.400 -0.400 0.400 0.400 ;
+ LAYER ML2 ;
+  RECT -1.0 -1.0 1.0 1.0 ;
  LAYER via2 ;
-  RECT -0.200 -0.200 0.200 0.200 ;
- LAYER metal3 ;
-  RECT -0.400 -0.400 0.400 0.400 ;
+  RECT -0.5 -0.5 0.5 0.5 ;
+ LAYER ML3 ;
+  RECT -1.0 -1.0 1.0 1.0 ;
 END M3_M2
 
-VIA M4_M3 DEFAULT
- LAYER metal3 ;
-  RECT -0.400 -0.400 0.400 0.400 ;
- LAYER via3 ;
-  RECT -0.200 -0.200 0.200 0.200 ;
- LAYER metal4 ;
-  RECT -0.600 -0.600 0.600 0.600 ;
-END M4_M3
+#VIA M4_M3 DEFAULT
+# LAYER ML3 ;
+#  RECT -0.400 -0.400 0.400 0.400 ;
+# LAYER via3 ;
+#  RECT -0.200 -0.200 0.200 0.200 ;
+# LAYER metal4 ;
+#  RECT -0.600 -0.600 0.600 0.600 ;
+#END M4_M3
 
 
 VIARULE viagen21 GENERATE
- LAYER metal1 ;
+ LAYER ML1 ;
   DIRECTION HORIZONTAL ;
-  WIDTH 0.6 TO 60 ;
+  WIDTH 1.0 TO 60 ;
   OVERHANG 0.2 ;
   METALOVERHANG 0 ;
- LAYER metal2 ;
+ LAYER ML2 ;
   DIRECTION VERTICAL ;
-  WIDTH 0.6 TO 60 ;
+  WIDTH 1.0 TO 60 ;
   OVERHANG 0.2 ;
   METALOVERHANG 0 ;
  LAYER via1 ;
-  RECT -0.2 -0.2 0.2 0.2 ;
+  RECT -0.5 -0.5 0.5 0.5 ;
   SPACING 1 BY 1 ;
 END viagen21
 
 VIARULE viagen32 GENERATE
- LAYER metal3 ;
+ LAYER ML3 ;
   DIRECTION HORIZONTAL ;
-  WIDTH 0.6 TO 60 ;
+  WIDTH 1.0 TO 60 ;
   OVERHANG 0.2 ;
   METALOVERHANG 0 ;
- LAYER metal2 ;
+ LAYER ML2 ;
   DIRECTION VERTICAL ;
-  WIDTH 0.6 TO 60 ;
+  WIDTH 1.0 TO 60 ;
   OVERHANG 0.2 ;
   METALOVERHANG 0 ;
  LAYER via2 ;
-  RECT -0.2 -0.2 0.2 0.2 ;
+  RECT -0.5 -0.5 0.5 0.5 ;
   SPACING 1 BY 1 ;
 END viagen32
 
-VIARULE viagen43 GENERATE
- LAYER metal3 ;
-  DIRECTION HORIZONTAL ;
-  WIDTH 0.6 TO 60 ;
-  OVERHANG 0.4 ;
-  METALOVERHANG 0 ;
- LAYER metal4 ;
-  DIRECTION VERTICAL ;
-  WIDTH 0.6 TO 60 ;
-  OVERHANG 0.4 ;
-  METALOVERHANG 0 ;
- LAYER via3 ;
-  RECT -0.2 -0.2 0.2 0.2 ;
-  SPACING 1.2 BY 1.2 ;
-END viagen43
+#VIARULE viagen43 GENERATE
+# LAYER ML3 ;
+#  DIRECTION HORIZONTAL ;
+#  WIDTH 0.6 TO 60 ;
+#  OVERHANG 0.4 ;
+#  METALOVERHANG 0 ;
+# LAYER metal4 ;
+#  DIRECTION VERTICAL ;
+#  WIDTH 0.6 TO 60 ;
+#  OVERHANG 0.4 ;
+#  METALOVERHANG 0 ;
+# LAYER via3 ;
+#  RECT -0.2 -0.2 0.2 0.2 ;
+#  SPACING 1.2 BY 1.2 ;
+#END viagen43
 
 VIARULE TURN1 GENERATE
- LAYER metal1 ;
+ LAYER ML1 ;
   DIRECTION HORIZONTAL ;
- LAYER metal1 ;
+ LAYER ML1 ;
   DIRECTION VERTICAL ;
 END TURN1
 
 VIARULE TURN2 GENERATE
- LAYER metal2 ;
+ LAYER ML2 ;
   DIRECTION HORIZONTAL ;
- LAYER metal2 ;
+ LAYER ML2 ;
   DIRECTION VERTICAL ;
 END TURN2
 
 VIARULE TURN3 GENERATE
- LAYER metal3 ;
+ LAYER ML3 ;
   DIRECTION HORIZONTAL ;
- LAYER metal3 ;
+ LAYER ML3 ;
   DIRECTION VERTICAL ;
 END TURN3
 
-VIARULE TURN4 GENERATE
- LAYER metal4 ;
-  DIRECTION HORIZONTAL ;
- LAYER metal4 ;
-  DIRECTION VERTICAL ;
-END TURN4
+#VIARULE TURN4 GENERATE
+# LAYER metal4 ;
+#  DIRECTION HORIZONTAL ;
+# LAYER metal4 ;
+#  DIRECTION VERTICAL ;
+#END TURN4
 
 SITE corner
   CLASS	PAD ;
@@ -235,7 +235,7 @@ MACRO FILL
   USE GROUND ;
   SHAPE ABUTMENT ;
   PORT
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT -0.400 -0.600 2.000 0.600 ;
   END
  END gnd
@@ -244,7 +244,7 @@ MACRO FILL
   USE POWER ;
   SHAPE ABUTMENT ;
   PORT
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT -0.400 19.400 2.000 20.600 ;
   END
  END vdd
@@ -262,11 +262,11 @@ MACRO an21
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 9.700  1.000 11.700  3.000 11.700  3.000 9.700  1.000 9.700 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 9.700  1.000 11.700  3.000 11.700  3.000 9.700  1.000 9.700 ;
     END
   END A
@@ -274,11 +274,11 @@ MACRO an21
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 12.500  4.000 14.500  6.000 14.500  6.000 12.500  4.000 12.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 12.500  4.000 14.500  6.000 14.500  6.000 12.500  4.000 12.500 ;
     END
   END B
@@ -286,7 +286,7 @@ MACRO an21
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  13.000 30.500 ;
     END
   END vdd
@@ -294,7 +294,7 @@ MACRO an21
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  13.000 1.500 ;
     END
   END gnd
@@ -302,28 +302,28 @@ MACRO an21
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 12.500  10.000 14.500  12.000 14.500  12.000 12.500  10.000 12.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 12.500  10.000 14.500  12.000 14.500  12.000 12.500  10.000 12.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 20.5 11.3 6.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.8 6.0 9.8 7.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 9.3 6.5 10.3 3.8 ;
     END
   END Y
   OBS
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 7.800 21.300 7.800 28.500  ;
       WIDTH 1.400  ;
@@ -369,11 +369,11 @@ MACRO an31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 9.700  1.000 11.700  3.000 11.700  3.000 9.700  1.000 9.700 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 9.700  1.000 11.700  3.000 11.700  3.000 9.700  1.000 9.700 ;
     END
   END A
@@ -381,11 +381,11 @@ MACRO an31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 12.500  4.000 14.500  6.000 14.500  6.000 12.500  4.000 12.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 12.500  4.000 14.500  6.000 14.500  6.000 12.500  4.000 12.500 ;
     END
   END B
@@ -393,11 +393,11 @@ MACRO an31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 9.700  7.000 11.700  9.000 11.700  9.000 9.700  7.000 9.700 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 9.700  7.000 11.700  9.000 11.700  9.000 9.700  7.000 9.700 ;
     END
   END C
@@ -405,7 +405,7 @@ MACRO an31
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  16.000 30.500 ;
     END
   END vdd
@@ -413,7 +413,7 @@ MACRO an31
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  16.000 1.500 ;
     END
   END gnd
@@ -421,28 +421,28 @@ MACRO an31
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 13.000 12.700  13.000 14.700  15.000 14.700  15.000 12.700  13.000 12.700 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 13.000 12.700  13.000 14.700  15.000 14.700  15.000 12.700  13.000 12.700 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.3 20.5 14.3 6.2 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.8 5.7 11.8 6.7 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 11.3 6.2 12.3 3.8 ;
     END
   END Y
   OBS
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 24.500  ;
       WIDTH 1.400  ;
@@ -498,11 +498,11 @@ MACRO an41
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 15.500  1.000 17.500  3.000 17.500  3.000 15.500  1.000 15.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 15.500  1.000 17.500  3.000 17.500  3.000 15.500  1.000 15.500 ;
     END
   END A
@@ -510,11 +510,11 @@ MACRO an41
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 12.500  4.000 14.500  6.000 14.500  6.000 12.500  4.000 12.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 12.500  4.000 14.500  6.000 14.500  6.000 12.500  4.000 12.500 ;
     END
   END B
@@ -522,11 +522,11 @@ MACRO an41
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 9.700  7.000 11.700  9.000 11.700  9.000 9.700  7.000 9.700 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 9.700  7.000 11.700  9.000 11.700  9.000 9.700  7.000 9.700 ;
     END
   END C
@@ -534,11 +534,11 @@ MACRO an41
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 12.500  10.000 14.500  12.000 14.500  12.000 12.500  10.000 12.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 12.500  10.000 14.500  12.000 14.500  12.000 12.500  10.000 12.500 ;
     END
   END D
@@ -546,7 +546,7 @@ MACRO an41
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  19.000 30.500 ;
     END
   END vdd
@@ -554,7 +554,7 @@ MACRO an41
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  19.000 1.500 ;
     END
   END gnd
@@ -562,28 +562,28 @@ MACRO an41
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 16.000 12.700  16.000 14.700  18.000 14.700  18.000 12.700  16.000 12.700 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 16.000 12.700  16.000 14.700  18.000 14.700  18.000 12.700  16.000 12.700 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 16.3 20.5 17.3 8.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 16.8 7.5 13.8 8.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.3 8.0 14.3 3.8 ;
     END
   END Y
   OBS
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 28.500  ;
       WIDTH 1.000  ;
@@ -645,11 +645,11 @@ MACRO buf1
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -657,7 +657,7 @@ MACRO buf1
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  10.000 30.500 ;
     END
   END vdd
@@ -665,7 +665,7 @@ MACRO buf1
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  10.000 1.500 ;
     END
   END gnd
@@ -673,20 +673,20 @@ MACRO buf1
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 13.800  7.000 15.800  9.000 15.800  9.000 13.800  7.000 13.800 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 13.800  7.000 15.800  9.000 15.800  9.000 13.800  7.000 13.800 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.3 3.9 8.3 20.5 ;
     END
   END Y
   OBS
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.000  ;
       PATH 7.800 3.900 7.800 20.500  ;
       WIDTH 1.400  ;
@@ -729,11 +729,11 @@ MACRO buf2
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -741,7 +741,7 @@ MACRO buf2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  13.000 30.500 ;
     END
   END vdd
@@ -749,7 +749,7 @@ MACRO buf2
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  13.000 1.500 ;
     END
   END gnd
@@ -757,20 +757,20 @@ MACRO buf2
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 13.800  7.000 15.800  9.000 15.800  9.000 13.800  7.000 13.800 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 13.800  7.000 15.800  9.000 15.800  9.000 13.800  7.000 13.800 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.3 3.9 8.3 20.5 ;
     END
   END Y
   OBS
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 24.500  ;
       WIDTH 1.000  ;
@@ -824,11 +824,11 @@ MACRO buf4
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -836,7 +836,7 @@ MACRO buf4
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  19.000 30.500 ;
     END
   END vdd
@@ -844,7 +844,7 @@ MACRO buf4
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  19.000 1.500 ;
     END
   END gnd
@@ -852,20 +852,20 @@ MACRO buf4
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 13.000 15.000  13.000 17.000  15.000 17.000  15.000 15.000  13.000 15.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 13.000 15.000  13.000 17.000  15.000 17.000  15.000 15.000  13.000 15.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.3 3.9 14.3 20.5 ;
     END
   END Y
   OBS
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 24.500  ;
       WIDTH 1.000  ;
@@ -937,11 +937,11 @@ MACRO buf8
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -949,7 +949,7 @@ MACRO buf8
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  31.000 30.500 ;
     END
   END vdd
@@ -957,7 +957,7 @@ MACRO buf8
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  31.000 1.500 ;
     END
   END gnd
@@ -965,41 +965,41 @@ MACRO buf8
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 8.3 7.0 25.3 8.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 8.3 8.0 25.3 9.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.3 3.9 8.3 20.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.3 3.9 14.3 20.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 19.3 3.9 20.3 20.5 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 25.000 13.800  25.000 15.800  27.000 15.800  27.000 13.800  25.000 13.800 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 25.000 13.800  25.000 15.800  27.000 15.800  27.000 13.800  25.000 13.800 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 25.3 3.9 26.3 20.5 ;
     END
   END Y
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 24.500  ;
       WIDTH 1.000  ;
@@ -1110,11 +1110,11 @@ MACRO dff1
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 3.300 9.000  3.300 11.000  5.300 11.000  5.300 9.000  3.300 9.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 3.300 9.000  3.300 11.000  5.300 11.000  5.300 9.000  3.300 9.000 ;
     END
   END CK
@@ -1122,11 +1122,11 @@ MACRO dff1
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 11.000 9.000  11.000 11.000  13.000 11.000  13.000 9.000  11.000 9.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 11.000 9.000  11.000 11.000  13.000 11.000  13.000 9.000  11.000 9.000 ;
     END
   END D
@@ -1134,15 +1134,15 @@ MACRO dff1
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 50.3 3.3 51.3 26.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 49.500 10.500  49.500 12.500  51.500 12.500  51.500 10.500  49.500 10.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 49.500 10.500  49.500 12.500  51.500 12.500  51.500 10.500  49.500 10.500 ;
     END
   END Q
@@ -1150,7 +1150,7 @@ MACRO dff1
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  52.500 30.500 ;
     END
   END vdd
@@ -1158,13 +1158,13 @@ MACRO dff1
     DIRECTION INOUT ;
      USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  52.500 1.500 ;
     END
   END gnd
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 22.600 1.800 25.800  ;
 
@@ -1353,11 +1353,11 @@ MACRO dff1m2
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 3.300 9.000  3.300 11.000  5.300 11.000  5.300 9.000  3.300 9.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 3.300 9.000  3.300 11.000  5.300 11.000  5.300 9.000  3.300 9.000 ;
     END
   END CK
@@ -1365,11 +1365,11 @@ MACRO dff1m2
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 11.000 9.000  11.000 11.000  13.000 11.000  13.000 9.000  11.000 9.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 11.000 9.000  11.000 11.000  13.000 11.000  13.000 9.000  11.000 9.000 ;
     END
   END D
@@ -1377,15 +1377,15 @@ MACRO dff1m2
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 50.3 3.3 51.3 26.0 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 49.500 10.500  49.500 12.500  51.500 12.500  51.500 10.500  49.500 10.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 49.500 10.500  49.500 12.500  51.500 12.500  51.500 10.500  49.500 10.500 ;
     END
   END Q
@@ -1393,7 +1393,7 @@ MACRO dff1m2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  52.500 30.500 ;
     END
   END vdd
@@ -1401,13 +1401,13 @@ MACRO dff1m2
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  52.500 1.500 ;
     END
   END gnd
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.000  ;
       PATH 1.800 26.000 1.800 3.600  ;
       WIDTH 1.400  ;
@@ -1487,7 +1487,7 @@ MACRO dff1m2
       WIDTH 1.000  ;
       PATH 50.800 3.300 50.800 26.000  ;
 
-    LAYER metal2 ;
+    LAYER ML2 ;
 
       WIDTH 1.000  ;
       PATH 22.300 18.700 22.300 10.000  ;
@@ -1601,15 +1601,15 @@ MACRO exnr
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.0 14.2 14.8 15.2 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 6.000 13.700  6.000 15.700  8.000 15.700  8.000 13.700  6.000 13.700 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 6.000 13.700  6.000 15.700  8.000 15.700  8.000 13.700  6.000 13.700 ;
     END
   END A
@@ -1617,15 +1617,15 @@ MACRO exnr
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 3.000 10.700  3.000 12.700  5.000 12.700  5.000 10.700  3.000 10.700 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.0 11.2 11.3 12.2 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 3.000 10.700  3.000 12.700  5.000 12.700  5.000 10.700  3.000 10.700 ;
     END
   END B
@@ -1633,7 +1633,7 @@ MACRO exnr
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  21.500 30.500 ;
     END
   END vdd
@@ -1641,7 +1641,7 @@ MACRO exnr
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  21.500 1.500 ;
     END
   END gnd
@@ -1649,37 +1649,37 @@ MACRO exnr
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 15.8 21.8 16.8 17.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 16.3 17.0 19.8 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 19.3 17.5 20.3 6.2 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 19.8 5.7 19.3 6.7 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 18.8 6.2 19.8 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 18.500 12.500  18.500 14.500  20.500 14.500  20.500 12.500  18.500 12.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 18.500 12.500  18.500 14.500  20.500 14.500  20.500 12.500  18.500 12.500 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 22.600 1.800 28.500  ;
       WIDTH 1.000  ;
@@ -1753,15 +1753,15 @@ MACRO exor
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.0 14.2 14.8 15.2 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 6.000 13.700  6.000 15.700  8.000 15.700  8.000 13.700  6.000 13.700 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 6.000 13.700  6.000 15.700  8.000 15.700  8.000 13.700  6.000 13.700 ;
     END
   END A
@@ -1769,15 +1769,15 @@ MACRO exor
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.0 10.2 11.3 11.2 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 3.000 9.700  3.000 11.700  5.000 11.700  5.000 9.700  3.000 9.700 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 3.000 9.700  3.000 11.700  5.000 11.700  5.000 9.700  3.000 9.700 ;
     END
   END B
@@ -1785,7 +1785,7 @@ MACRO exor
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  21.500 30.500 ;
     END
   END vdd
@@ -1793,7 +1793,7 @@ MACRO exor
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  21.500 1.500 ;
     END
   END gnd
@@ -1801,29 +1801,29 @@ MACRO exor
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 18.8 21.8 19.8 5.7 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 19.3 5.2 15.3 6.2 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 14.8 5.7 15.8 3.8 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 18.500 12.700  18.500 14.700  20.500 14.700  20.500 12.700  18.500 12.700 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 18.500 12.700  18.500 14.700  20.500 14.700  20.500 12.700  18.500 12.700 ;
     END
   END Y
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 22.600 1.800 25.800  ;
       WIDTH 1.000  ;
@@ -1899,11 +1899,11 @@ MACRO inv1
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -1911,7 +1911,7 @@ MACRO inv1
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  7.000 30.500 ;
     END
   END vdd
@@ -1919,7 +1919,7 @@ MACRO inv1
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  7.000 1.500 ;
     END
   END gnd
@@ -1927,21 +1927,21 @@ MACRO inv1
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 10.300  4.000 12.300  6.000 12.300  6.000 10.300  4.000 10.300 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 10.300  4.000 12.300  6.000 12.300  6.000 10.300  4.000 10.300 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 20.5 5.3 3.8 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
 
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 28.500  ;
@@ -1978,11 +1978,11 @@ MACRO inv2
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -1990,7 +1990,7 @@ MACRO inv2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  10.000 30.500 ;
     END
   END vdd
@@ -1998,7 +1998,7 @@ MACRO inv2
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  10.000 1.500 ;
     END
   END gnd
@@ -2006,21 +2006,21 @@ MACRO inv2
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 11.000  4.000 13.000  6.000 13.000  6.000 11.000  4.000 11.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 11.000  4.000 13.000  6.000 13.000  6.000 11.000  4.000 11.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 20.5 5.3 3.8 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
 
       WIDTH 1.000  ;
       PATH 7.800 1.000 7.800 3.800  ;
@@ -2065,11 +2065,11 @@ MACRO inv4
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -2077,7 +2077,7 @@ MACRO inv4
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  16.000 30.500 ;
     END
   END vdd
@@ -2085,7 +2085,7 @@ MACRO inv4
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  16.000 1.500 ;
     END
   END gnd
@@ -2093,29 +2093,29 @@ MACRO inv4
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 10.000  10.000 12.000  12.000 12.000  12.000 10.000  10.000 10.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 10.000  10.000 12.000  12.000 12.000  12.000 10.000  10.000 10.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.8 10.5 10.8 11.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 20.5 5.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 20.5 11.3 3.8 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.000  ;
       PATH 1.800 1.000 1.800 3.800  ;
       WIDTH 1.400  ;
@@ -2177,11 +2177,11 @@ MACRO inv8
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -2189,7 +2189,7 @@ MACRO inv8
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  28.000 30.500 ;
     END
   END vdd
@@ -2197,7 +2197,7 @@ MACRO inv8
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  28.000 1.500 ;
     END
   END gnd
@@ -2205,37 +2205,37 @@ MACRO inv8
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.8 10.5 22.8 11.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 20.5 5.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 20.5 11.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 16.3 20.5 17.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 22.000 10.500  22.000 12.500  24.000 12.500  24.000 10.500  22.000 10.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 22.000 10.500  22.000 12.500  24.000 12.500  24.000 10.500  22.000 10.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 22.3 20.5 23.3 3.8 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.000  ;
       PATH 1.800 1.000 1.800 3.800  ;
       WIDTH 1.400  ;
@@ -2331,11 +2331,11 @@ MACRO na21
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -2343,11 +2343,11 @@ MACRO na21
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 8.500  4.000 10.500  6.000 10.500  6.000 8.500  4.000 8.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 8.500  4.000 10.500  6.000 10.500  6.000 8.500  4.000 8.500 ;
     END
   END B
@@ -2355,7 +2355,7 @@ MACRO na21
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  10.000 30.500 ;
     END
   END vdd
@@ -2363,7 +2363,7 @@ MACRO na21
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  10.000 1.500 ;
     END
   END gnd
@@ -2371,37 +2371,37 @@ MACRO na21
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 20.5 5.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.8 17.5 7.5 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.0 18.0 8.0 6.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.5 6.0 6.8 7.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 6.3 6.5 7.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 13.000  7.000 15.000  9.000 15.000  9.000 13.000  7.000 13.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 13.000  7.000 15.000  9.000 15.000  9.000 13.000  7.000 13.000 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
 
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 28.500  ;
@@ -2444,11 +2444,11 @@ MACRO na212
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A0
@@ -2456,11 +2456,11 @@ MACRO na212
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
   END A1
@@ -2468,11 +2468,11 @@ MACRO na212
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 12.000  7.000 14.000  9.000 14.000  9.000 12.000  7.000 12.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 12.000  7.000 14.000  9.000 14.000  9.000 12.000  7.000 12.000 ;
     END
   END B0
@@ -2480,7 +2480,7 @@ MACRO na212
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  13.000 30.500 ;
     END
   END vdd
@@ -2488,7 +2488,7 @@ MACRO na212
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  13.000 1.500 ;
     END
   END gnd
@@ -2496,37 +2496,37 @@ MACRO na212
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.3 20.5 8.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.8 17.5 10.5 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.0 18.0 11.0 8.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.5 7.5 10.8 8.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 8.0 11.3 5.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 8.500  10.000 10.500  12.000 10.500  12.000 8.500  10.000 8.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 8.500  10.000 10.500  12.000 10.500  12.000 8.500  10.000 8.500 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
 
       WIDTH 1.000  ;
       PATH 4.800 1.000 4.800 5.500  ;
@@ -2574,11 +2574,11 @@ MACRO na222
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A0
@@ -2586,11 +2586,11 @@ MACRO na222
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 10.300  4.000 12.300  6.000 12.300  6.000 10.300  4.000 10.300 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 10.300  4.000 12.300  6.000 12.300  6.000 10.300  4.000 10.300 ;
     END
   END A1
@@ -2598,11 +2598,11 @@ MACRO na222
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 14.500  10.000 16.500  12.000 16.500  12.000 14.500  10.000 14.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 14.500  10.000 16.500  12.000 16.500  12.000 14.500  10.000 14.500 ;
     END
   END B0
@@ -2610,11 +2610,11 @@ MACRO na222
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 11.500  7.000 13.500  9.000 13.500  9.000 11.500  7.000 11.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 11.500  7.000 13.500  9.000 13.500  9.000 11.500  7.000 11.500 ;
     END
   END B1
@@ -2622,7 +2622,7 @@ MACRO na222
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  16.000 30.500 ;
     END
   END vdd
@@ -2630,7 +2630,7 @@ MACRO na222
     DIRECTION INOUT ;
      USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  16.000 1.500 ;
     END
   END gnd
@@ -2638,37 +2638,37 @@ MACRO na222
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.3 20.5 8.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.8 17.5 13.5 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.0 18.0 14.0 8.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.5 7.5 10.8 8.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 8.0 11.3 5.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 13.000 10.500  13.000 12.500  15.000 12.500  15.000 10.500  13.000 10.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 13.000 10.500  13.000 12.500  15.000 12.500  15.000 10.500  13.000 10.500 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       POLYGON 4.000 10.300  4.000 12.300  6.000 12.300  6.000 10.300  4.000 10.300 ;
       POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
       POLYGON 13.000 10.500  13.000 12.500  15.000 12.500  15.000 10.500  13.000 10.500 ;
@@ -2720,11 +2720,11 @@ MACRO na31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -2732,7 +2732,7 @@ MACRO na31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
   END B
@@ -2740,11 +2740,11 @@ MACRO na31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 8.000  7.000 10.000  9.000 10.000  9.000 8.000  7.000 8.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 8.000  7.000 10.000  9.000 10.000  9.000 8.000  7.000 8.000 ;
     END
   END C
@@ -2752,7 +2752,7 @@ MACRO na31
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  13.000 30.500 ;
     END
   END vdd
@@ -2760,7 +2760,7 @@ MACRO na31
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  13.000 1.500 ;
     END
   END gnd
@@ -2768,41 +2768,41 @@ MACRO na31
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 20.5 11.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 20.5 5.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.8 17.5 10.8 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 18.0 11.3 6.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.8 6.0 8.8 7.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 8.3 6.5 9.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 12.000  10.000 14.000  12.000 14.000  12.000 12.000  10.000 12.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 12.000  10.000 14.000  12.000 14.000  12.000 12.000  10.000 12.000 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 28.500  ;
       WIDTH 1.000  ;
@@ -2855,11 +2855,11 @@ MACRO na41
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 15.500  1.000 17.500  3.000 17.500  3.000 15.500  1.000 15.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 15.500  1.000 17.500  3.000 17.500  3.000 15.500  1.000 15.500 ;
     END
   END A
@@ -2867,11 +2867,11 @@ MACRO na41
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 12.500  4.000 14.500  6.000 14.500  6.000 12.500  4.000 12.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 12.500  4.000 14.500  6.000 14.500  6.000 12.500  4.000 12.500 ;
     END
   END B
@@ -2879,11 +2879,11 @@ MACRO na41
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 9.500  7.000 11.500  9.000 11.500  9.000 9.500  7.000 9.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 9.500  7.000 11.500  9.000 11.500  9.000 9.500  7.000 9.500 ;
     END
   END C
@@ -2891,11 +2891,11 @@ MACRO na41
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 6.500  10.000 8.500  12.000 8.500  12.000 6.500  10.000 6.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 6.500  10.000 8.500  12.000 8.500  12.000 6.500  10.000 6.500 ;
     END
   END D
@@ -2903,7 +2903,7 @@ MACRO na41
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  16.000 30.500 ;
     END
   END vdd
@@ -2911,7 +2911,7 @@ MACRO na41
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  16.000 1.500 ;
     END
   END gnd
@@ -2919,37 +2919,37 @@ MACRO na41
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 13.000 9.500  13.000 11.500  15.000 11.500  15.000 9.500  13.000 9.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 13.000 9.500  13.000 11.500  15.000 11.500  15.000 9.500  13.000 9.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 20.5 11.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 20.5 5.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.8 17.5 13.8 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.3 18.0 14.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.8 3.3 10.8 4.3 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 28.500  ;
       WIDTH 1.000  ;
@@ -3007,11 +3007,11 @@ MACRO nr21
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -3019,11 +3019,11 @@ MACRO nr21
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
   END B
@@ -3031,7 +3031,7 @@ MACRO nr21
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  10.000 30.500 ;
     END
   END vdd
@@ -3039,7 +3039,7 @@ MACRO nr21
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  10.000 1.500 ;
     END
   END gnd
@@ -3047,37 +3047,37 @@ MACRO nr21
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 3.8 5.3 6.2 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.8 5.7 7.8 6.7 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.3 6.2 8.3 15.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 7.8 15.0 7.3 16.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 6.8 15.5 7.8 20.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 8.500  7.000 10.500  9.000 10.500  9.000 8.500  7.000 8.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 8.500  7.000 10.500  9.000 10.500  9.000 8.500  7.000 8.500 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
 
       WIDTH 1.000  ;
       PATH 4.800 3.800 4.800 6.200 7.800 6.200 7.800 15.500 7.300 15.500 7.300 20.500 ;
@@ -3118,11 +3118,11 @@ MACRO nr212
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A0
@@ -3130,11 +3130,11 @@ MACRO nr212
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 8.500  4.000 10.500  6.000 10.500  6.000 8.500  4.000 8.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 8.500  4.000 10.500  6.000 10.500  6.000 8.500  4.000 8.500 ;
     END
   END A1
@@ -3142,11 +3142,11 @@ MACRO nr212
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 11.500  7.000 13.500  9.000 13.500  9.000 11.500  7.000 11.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 11.500  7.000 13.500  9.000 13.500  9.000 11.500  7.000 11.500 ;
     END
   END B0
@@ -3154,7 +3154,7 @@ MACRO nr212
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  13.000 30.500 ;
     END
   END vdd
@@ -3162,7 +3162,7 @@ MACRO nr212
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  13.000 1.500 ;
     END
   END gnd
@@ -3170,37 +3170,37 @@ MACRO nr212
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 20.5 11.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.8 17.5 10.5 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.0 18.0 11.0 6.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.5 6.0 6.8 7.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 6.3 6.5 7.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 9.500 8.500  9.500 10.500  11.500 10.500  11.500 8.500  9.500 8.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 9.500 8.500  9.500 10.500  11.500 10.500  11.500 8.500  9.500 8.500 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
 
       WIDTH 1.000  ;
       PATH 1.800 24.500 1.800 18.000 7.800 18.000 7.800 24.500  ;
@@ -3252,11 +3252,11 @@ MACRO nr222
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A0
@@ -3264,11 +3264,11 @@ MACRO nr222
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 8.500  4.000 10.500  6.000 10.500  6.000 8.500  4.000 8.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 8.500  4.000 10.500  6.000 10.500  6.000 8.500  4.000 8.500 ;
     END
   END A1
@@ -3276,11 +3276,11 @@ MACRO nr222
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 14.500  10.000 16.500  12.000 16.500  12.000 14.500  10.000 14.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 14.500  10.000 16.500  12.000 16.500  12.000 14.500  10.000 14.500 ;
     END
   END B0
@@ -3288,11 +3288,11 @@ MACRO nr222
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 11.500  7.000 13.500  9.000 13.500  9.000 11.500  7.000 11.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 11.500  7.000 13.500  9.000 13.500  9.000 11.500  7.000 11.500 ;
     END
   END B1
@@ -3300,7 +3300,7 @@ MACRO nr222
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  16.000 30.500 ;
     END
   END vdd
@@ -3308,7 +3308,7 @@ MACRO nr222
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  16.000 1.500 ;
     END
   END gnd
@@ -3316,37 +3316,37 @@ MACRO nr222
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 20.5 11.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.8 17.5 13.5 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.0 18.0 14.0 6.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.5 6.0 6.8 7.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 6.3 6.5 7.3 3.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 12.500 8.000  12.500 10.000  14.500 10.000  14.500 8.000  12.500 8.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 12.500 8.000  12.500 10.000  14.500 10.000  14.500 8.000  12.500 8.000 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
 
       WIDTH 1.400  ;
       PATH 1.800 21.300 1.800 24.500  ;
@@ -3402,11 +3402,11 @@ MACRO nr31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -3414,11 +3414,11 @@ MACRO nr31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
   END B
@@ -3426,11 +3426,11 @@ MACRO nr31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 12.000  7.000 14.000  9.000 14.000  9.000 12.000  7.000 12.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 12.000  7.000 14.000  9.000 14.000  9.000 12.000  7.000 12.000 ;
     END
   END C
@@ -3438,7 +3438,7 @@ MACRO nr31
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  13.000 30.500 ;
     END
   END vdd
@@ -3446,7 +3446,7 @@ MACRO nr31
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  13.000 1.500 ;
     END
   END gnd
@@ -3455,37 +3455,37 @@ MACRO nr31
     DIRECTION INOUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.000 7.800  12.000 9.800 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         RECT 10.000 7.800  12.000 9.800 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.3 3.8 5.3 6.3 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 4.8 5.8 10.8 6.8 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 9.3 20.5 10.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 9.8 17.5 10.8 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 18.0 11.3 3.8 ;
     END
   END YB
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.000  ;
       PATH 1.800 1.000 1.800 3.800  ;
 
@@ -3532,11 +3532,11 @@ MACRO or21
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 8.500  1.000 10.500  3.000 10.500  3.000 8.500  1.000 8.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 8.500  1.000 10.500  3.000 10.500  3.000 8.500  1.000 8.500 ;
     END
   END A
@@ -3544,11 +3544,11 @@ MACRO or21
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
   END B
@@ -3556,7 +3556,7 @@ MACRO or21
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  13.000 30.500 ;
     END
   END vdd
@@ -3564,7 +3564,7 @@ MACRO or21
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  13.000 1.500 ;
     END
   END gnd
@@ -3572,29 +3572,29 @@ MACRO or21
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.3 3.8 11.3 18.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 10.8 17.5 10.3 18.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 9.8 18.0 10.8 20.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 10.000 8.000  10.000 10.000  12.000 10.000  12.000 8.000  10.000 8.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 10.000 8.000  10.000 10.000  12.000 10.000  12.000 8.000  10.000 8.000 ;
     END
   END Y
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.000  ;
       PATH 1.800 1.000 1.800 3.800  ;
 
@@ -3645,11 +3645,11 @@ MACRO or31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 1.000 14.500  1.000 16.500  3.000 16.500  3.000 14.500  1.000 14.500 ;
     END
   END A
@@ -3657,11 +3657,11 @@ MACRO or31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 4.000 11.500  4.000 13.500  6.000 13.500  6.000 11.500  4.000 11.500 ;
     END
   END B
@@ -3669,11 +3669,11 @@ MACRO or31
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 7.000 12.000  7.000 14.000  9.000 14.000  9.000 12.000  7.000 12.000 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 7.000 12.000  7.000 14.000  9.000 14.000  9.000 12.000  7.000 12.000 ;
     END
   END C
@@ -3681,7 +3681,7 @@ MACRO or31
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  16.000 30.500 ;
     END
   END vdd
@@ -3689,7 +3689,7 @@ MACRO or31
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  16.000 1.500 ;
     END
   END gnd
@@ -3697,29 +3697,29 @@ MACRO or31
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         RECT 13.000 9.000  15.000 11.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.000 9.000  15.000 11.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.3 3.9 14.3 16.5 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 13.8 16.0 12.8 17.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 12.3 16.5 13.3 20.5 ;
     END
   END Y
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
 
       WIDTH 1.400  ;
       PATH 2.800 21.300 2.800 24.500  ;
@@ -3775,11 +3775,11 @@ MACRO rff1
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 3.500 9.000  3.500 11.000  5.500 11.000  5.500 9.000  3.500 9.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 3.500 9.000  3.500 11.000  5.500 11.000  5.500 9.000  3.500 9.000 ;
     END
   END CK
@@ -3787,11 +3787,11 @@ MACRO rff1
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 11.000 9.000  11.000 11.000  13.000 11.000  13.000 9.000  11.000 9.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 11.000 9.000  11.000 11.000  13.000 11.000  13.000 9.000  11.000 9.000 ;
     END
   END D
@@ -3799,15 +3799,15 @@ MACRO rff1
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 54.3 3.3 55.3 26.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 53.500 10.500  53.500 12.500  55.500 12.500  55.500 10.500  53.500 10.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 53.500 10.500  53.500 12.500  55.500 12.500  55.500 10.500  53.500 10.500 ;
     END
   END Q
@@ -3815,11 +3815,11 @@ MACRO rff1
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 43.000 10.500  43.000 12.500  45.000 12.500  45.000 10.500  43.000 10.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 43.000 10.500  43.000 12.500  45.000 12.500  45.000 10.500  43.000 10.500 ;
     END
   END R
@@ -3827,7 +3827,7 @@ MACRO rff1
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  56.500 30.500 ;
     END
   END vdd
@@ -3835,13 +3835,13 @@ MACRO rff1
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  56.500 1.500 ;
     END
   END gnd
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.000  ;
       PATH 1.800 26.000 1.800 3.600  ;
       WIDTH 1.400  ;
@@ -4030,11 +4030,11 @@ MACRO rff1m2
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 3.500 9.000  3.500 11.000  5.500 11.000  5.500 9.000  3.500 9.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 3.500 9.000  3.500 11.000  5.500 11.000  5.500 9.000  3.500 9.000 ;
     END
   END CK
@@ -4042,11 +4042,11 @@ MACRO rff1m2
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 11.000 9.000  11.000 11.000  13.000 11.000  13.000 9.000  11.000 9.000 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 11.000 9.000  11.000 11.000  13.000 11.000  13.000 9.000  11.000 9.000 ;
     END
   END D
@@ -4054,15 +4054,15 @@ MACRO rff1m2
     DIRECTION OUTPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT 54.3 3.3 55.3 26.0 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 53.500 10.500  53.500 12.500  55.500 12.500  55.500 10.500  53.500 10.500 ;
     END
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 53.500 10.500  53.500 12.500  55.500 12.500  55.500 10.500  53.500 10.500 ;
     END
   END Q
@@ -4070,11 +4070,11 @@ MACRO rff1m2
     DIRECTION INPUT ;
     USE SIGNAL ;
     PORT
-      LAYER metal2 ;
+      LAYER ML2 ;
         POLYGON 43.000 10.500  43.000 12.500  45.000 12.500  45.000 10.500  43.000 10.500 ;
     END
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         POLYGON 43.000 10.500  43.000 12.500  45.000 12.500  45.000 10.500  43.000 10.500 ;
     END
   END R
@@ -4082,7 +4082,7 @@ MACRO rff1m2
     DIRECTION INOUT ;
     USE POWER ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 28.500  56.500 30.500 ;
     END
   END vdd
@@ -4090,13 +4090,13 @@ MACRO rff1m2
     DIRECTION INOUT ;
     USE GROUND ;
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         RECT -0.500 -0.500  56.500 1.500 ;
     END
   END gnd
   OBS
 
-    LAYER metal1 ;
+    LAYER ML1 ;
       WIDTH 1.000  ;
       PATH 1.800 26.000 1.800 3.600  ;
       WIDTH 1.400  ;
@@ -4185,7 +4185,7 @@ MACRO rff1m2
 
       WIDTH 1.000  ;
       PATH 54.800 3.300 54.800 26.000  ;
-    LAYER metal2 ;
+    LAYER ML2 ;
       WIDTH 1.000  ;
       PATH 22.300 10.000 22.300 18.700  ;
       WIDTH 1.000  ;
@@ -4294,7 +4294,7 @@ END rff1m2
 MACRO dcont
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    RECT -1.000 -1.000 1.000 1.000 ;
  END
 END dcont
@@ -4302,7 +4302,7 @@ END dcont
 MACRO nsubcont
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    RECT -1.000 -1.000 1.000 1.000 ;
  END
 END nsubcont
@@ -4310,7 +4310,7 @@ END nsubcont
 MACRO pcont
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    RECT -1.000 -1.000 1.000 1.000 ;
  END
 END pcont
@@ -4318,7 +4318,7 @@ END pcont
 MACRO psubcont
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    RECT -1.000 -1.000 1.000 1.000 ;
  END
 END psubcont
@@ -4326,9 +4326,9 @@ END psubcont
 MACRO Via
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    POLYGON -1.000 -1.000 -1.000 1.000 1.000 1.000 1.000 -1.000 -1.000 -1.000 ;
-  LAYER metal2 ;
+  LAYER ML2 ;
    POLYGON -1.000 -1.000 -1.000 1.000 1.000 1.000 1.000 -1.000 -1.000 -1.000 ;
  END
 END Via
@@ -4339,7 +4339,7 @@ END LIBRARY
 MACRO dcont
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    RECT -1.000 -1.000 1.000 1.000 ;
  END
 END dcont
@@ -4347,7 +4347,7 @@ END dcont
 MACRO nsubcont
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    RECT -1.000 -1.000 1.000 1.000 ;
  END
 END nsubcont
@@ -4355,7 +4355,7 @@ END nsubcont
 MACRO pcont
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    RECT -1.000 -1.000 1.000 1.000 ;
  END
 END pcont
@@ -4363,7 +4363,7 @@ END pcont
 MACRO psubcont
  CLASS CORE ;
  OBS
-  LAYER metal1 ;
+  LAYER ML1 ;
    RECT -1.000 -1.000 1.000 1.000 ;
  END
 END psubcont
@@ -4378,9 +4378,9 @@ MACRO PADFC
  OBS 
    LAYER metal4 ;
     RECT 0.600 0.600 299.400 299.400 ;
-   LAYER metal3 ;
+   LAYER ML3 ;
     RECT 0.600 0.600 299.400 299.400 ;
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 98.000 0.000 170.400 299.400 ;
     RECT 174.800 0.000 195.800 299.400 ;
     RECT 202.200 0.000 223.200 299.400 ;
@@ -4389,7 +4389,7 @@ MACRO PADFC
     RECT 0.600 104.000 300.000 125.200 ;
     RECT 0.600 129.600 300.000 202.000 ;
     RECT 0.600 0.600 299.400 299.400 ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 98.000 0.000 195.800 299.400 ;
     RECT 202.200 0.000 300.000 97.800 ;
     RECT 0.600 104.000 300.000 202.000 ;
@@ -4416,7 +4416,7 @@ MACRO PADGND
   USE GROUND ;
   PORT
    CLASS CORE ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 34.800 0.000 54.800 0.800 ;
   END
  END gnd
@@ -4426,9 +4426,9 @@ MACRO PADGND
     RECT 0.600 271.600 89.400 299.000 ;
     RECT 0.600 0.600 35.600 299.400 ;
     RECT 53.000 0.600 89.400 299.400 ;
-   LAYER metal3 ;
+   LAYER ML3 ;
     RECT 0.600 0.600 89.400 299.400 ;
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 0.000 0.000 90.000 72.400 ;
     RECT 0.600 76.600 89.600 97.800 ;
     RECT 0.000 76.800 90.000 97.800 ;
@@ -4436,7 +4436,7 @@ MACRO PADGND
     RECT 0.000 129.600 90.000 202.000 ;
     RECT 0.600 0.000 89.400 299.400 ;
     RECT 6.000 0.000 84.000 300.000 ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 0.000 0.000 34.200 97.800 ;
     RECT 55.600 0.000 90.000 97.800 ;
     RECT 0.000 104.200 90.000 202.000 ;
@@ -4464,7 +4464,7 @@ MACRO PADVDD
   USE POWER ;
   PORT
    CLASS CORE ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 35.400 0.000 54.600 0.800 ;
   END
  END vdd
@@ -4474,9 +4474,9 @@ MACRO PADVDD
     RECT 0.600 270.200 89.400 299.000 ;
     RECT 0.600 0.600 40.400 299.400 ;
     RECT 46.200 0.600 89.400 299.400 ;
-   LAYER metal3 ;
+   LAYER ML3 ;
     RECT 0.600 0.600 89.400 299.400 ;
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 0.000 0.000 34.400 72.400 ;
     RECT 35.400 0.000 54.600 300.000 ;
     RECT 55.600 0.000 90.000 72.400 ;
@@ -4485,7 +4485,7 @@ MACRO PADVDD
     RECT 0.000 129.600 90.000 202.000 ;
     RECT 0.600 1.800 89.400 299.400 ;
     RECT 6.000 1.800 84.000 300.000 ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 0.000 0.000 34.400 97.800 ;
     RECT 55.600 0.000 90.000 97.800 ;
     RECT 0.000 104.200 90.000 202.000 ;
@@ -4511,7 +4511,7 @@ MACRO PADINC
  PIN DI
   DIRECTION OUTPUT ;
   PORT
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 82.200 -0.400 83.000 0.400 ;
     RECT 81.600 0.000 83.400 0.400 ;
   END
@@ -4522,11 +4522,11 @@ MACRO PADINC
     RECT 0.600 270.200 89.400 299.000 ;
     RECT 0.600 0.600 40.400 299.400 ;
     RECT 46.200 0.600 89.400 299.400 ;
-   LAYER metal3 ;
+   LAYER ML3 ;
     RECT 0.600 0.600 80.600 299.400 ;
     RECT 84.400 0.600 89.400 299.400 ;
     RECT 0.600 1.400 89.400 299.400 ;
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 0.000 0.000 34.400 72.400 ;
     RECT 35.400 0.000 54.600 300.000 ;
     RECT 55.600 0.000 78.200 300.000 ;
@@ -4538,7 +4538,7 @@ MACRO PADINC
     RECT 0.000 129.600 90.000 202.000 ;
     RECT 0.600 1.400 89.400 299.400 ;
     RECT 6.000 1.400 84.000 300.000 ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 0.000 0.000 90.000 97.800 ;
     RECT 0.000 104.200 90.000 202.000 ;
     RECT 0.600 0.000 89.400 299.400 ;
@@ -4563,7 +4563,7 @@ MACRO PADINOUT
  PIN DO
   DIRECTION INPUT ;
   PORT
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 8.200 -0.400 9.000 0.400 ;
     RECT 7.600 0.000 9.400 0.400 ;
   END
@@ -4571,7 +4571,7 @@ MACRO PADINOUT
  PIN DI
   DIRECTION OUTPUT ;
   PORT
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 82.200 -0.400 83.000 0.400 ;
     RECT 81.600 0.000 83.400 0.400 ;
   END
@@ -4579,7 +4579,7 @@ MACRO PADINOUT
  PIN OEN
   DIRECTION INPUT ;
   PORT
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 2.600 -0.400 3.400 0.400 ;
     RECT 2.200 0.000 4.000 0.400 ;
   END
@@ -4590,13 +4590,13 @@ MACRO PADINOUT
     RECT 0.600 270.200 89.400 299.000 ;
     RECT 0.600 0.600 40.400 299.400 ;
     RECT 46.200 0.600 89.400 299.400 ;
-   LAYER metal3 ;
+   LAYER ML3 ;
     RECT 0.600 0.600 1.200 299.400 ;
     RECT 5.000 0.600 6.600 299.400 ;
     RECT 10.400 0.600 80.600 299.400 ;
     RECT 84.400 0.600 89.400 299.400 ;
     RECT 0.600 1.400 89.400 299.400 ;
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 10.200 0.000 34.400 300.000 ;
     RECT 35.400 0.000 54.600 300.000 ;
     RECT 55.600 0.000 78.200 300.000 ;
@@ -4610,7 +4610,7 @@ MACRO PADINOUT
     RECT 0.000 129.600 90.000 202.000 ;
     RECT 0.600 1.400 89.400 299.400 ;
     RECT 6.000 1.400 84.000 300.000 ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 0.000 0.000 90.000 97.800 ;
     RECT 0.000 104.200 90.000 202.000 ;
     RECT 0.600 0.000 89.400 299.400 ;
@@ -4628,15 +4628,15 @@ MACRO PADNC
  OBS 
    LAYER metal4 ;
     RECT 0.600 0.600 89.400 299.400 ;
-   LAYER metal3 ;
+   LAYER ML3 ;
     RECT 0.600 0.600 89.400 299.400 ;
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 0.000 0.000 90.000 72.400 ;
     RECT 0.000 76.800 90.000 97.800 ;
     RECT 0.000 104.200 90.000 125.200 ;
     RECT 0.000 129.600 90.000 202.000 ;
     RECT 0.600 0.000 89.400 299.400 ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 0.000 0.000 90.000 97.800 ;
     RECT 0.000 104.200 90.000 202.000 ;
     RECT 0.600 0.000 89.400 299.400 ;
@@ -4660,7 +4660,7 @@ MACRO PADOUT
  PIN DO
   DIRECTION INPUT ;
   PORT
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 8.200 -0.400 9.000 0.400 ;
     RECT 7.600 0.000 9.400 0.400 ;
   END
@@ -4671,11 +4671,11 @@ MACRO PADOUT
     RECT 0.600 270.200 89.400 299.000 ;
     RECT 0.600 0.600 40.400 299.400 ;
     RECT 46.200 0.600 89.400 299.400 ;
-   LAYER metal3 ;
+   LAYER ML3 ;
     RECT 0.600 0.600 6.600 299.400 ;
     RECT 10.400 0.600 89.400 299.400 ;
     RECT 0.600 1.400 89.400 299.400 ;
-   LAYER metal2 ;
+   LAYER ML2 ;
     RECT 0.000 0.000 1.400 72.400 ;
     RECT 2.200 0.000 4.000 299.400 ;
     RECT 4.800 0.000 6.800 299.400 ;
@@ -4692,7 +4692,7 @@ MACRO PADOUT
     RECT 0.000 129.600 90.000 202.000 ;
     RECT 0.600 1.400 89.400 299.400 ;
     RECT 6.000 1.400 84.000 300.000 ;
-   LAYER metal1 ;
+   LAYER ML1 ;
     RECT 0.000 0.000 90.000 97.800 ;
     RECT 0.000 104.200 90.000 202.000 ;
     RECT 0.600 0.000 89.400 299.400 ;
