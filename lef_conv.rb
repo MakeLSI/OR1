@@ -86,7 +86,7 @@ def read_lef lines
         port_count = port_count + 1 
       else
         if pl=~/LAYER ML/
-          pl.sub! 'ML', 'metal'
+          pl.sub! 'ML', 'ML'
         elsif pl =~ /POLYGON/
           port_type[port_count] = 'POLYGON'
         elsif pl =~ /PATH/
@@ -133,7 +133,7 @@ def read_lef lines
       port_type = []
       puts pl
     elsif pl=~/LAYER ML/
-      pl.sub! 'ML', 'metal'
+      pl.sub! 'ML', 'ML'
       puts pl
     else
       puts pl if pl
@@ -159,7 +159,7 @@ end
 if ARGV[0].nil?
   lines =<<EOF
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         WIDTH 1.000 ;
         PATH 4.800 20.500 4.800 18.000 ;
     END
@@ -171,7 +171,7 @@ EOF
   
   lines =<<EOF
     PORT
-      LAYER metal1 ;
+      LAYER ML1 ;
         WIDTH 1.000 ;
         PATH 4.800 20.500 4.800 18.000 7.500 18.000 7.500 6.500 6.800 6.500 6.800 3.800 ;
     END
