@@ -79,13 +79,11 @@ OR1（仮称）というプロセスをQflowに追加する
 - an31とan41にだけDIRECTION文が入ってるので無視する
 - an31とan41は、Windowsの"\r”コードが入ってるので抜く
 
-# placerでLEFがらみのエラーで止まる場合の対策
-- 以下のように問題となっているprocに    puts [info level 0]を入れる
-<PRE>
-proc parse_port {pinname macroname leffile ox oy} {
-    puts [info level 0]
-</PRE>
-そうすると、どのPORTの処理が問題かわかる。
+## ALSI山田さんのツールが生成したlefについての問題点
+
+- na31のPORT Bは、LAYER ML2のみで、LAYER ML1の記述が欠落している
+- Y/YBの記述は、ML1とML2を一致させた方が良い場合が多いように思われる
+　なまじML１のみ配線を加えても却って配線不能になったり、buf8の場合、ML2のみにしないと外部への配線が引き出されなかったりとう問題が発生する（原因は不明）
 
 ## TODO
 - OR1.shファイルの見直し
