@@ -32,6 +32,61 @@ OR1（仮称）というプロセスをQflowに追加する
    /tmp/lef_v110.lefにつにまとめたlefファイルができます。どのように変換されたかは、以下のdiffを実行すると表示されます。
    ``diff /usr/local/share/qflow/tech/OR1/lef_v110_merged.lef /tmp/lef_v110.lef >/tmp/d``
 
+## 変換スクリプト lef_conv.rbの修正 (rev.2)
+- PORTの記述が異なった
+　　ALSI山田さんのツールが生成したlef
+<PRE>
+  PIN A
+    DIRECTION INPUT ;
+    PORT
+      LAYER ML1 ;
+        POLYGON 1.000 9.700  1.000 11.700  3.000 11.700  3.000 9.700  1.000 
+        9.700  ;
+    END
+    PORT
+      LAYER ML2 ;
+        POLYGON 1.000 9.700  1.000 11.700  3.000 11.700  3.000 9.700  1.000 
+        9.700  ;
+    END
+  END A
+
+</PRE>　　　
+　　qflowが想定するlef
+<PRE>
+  PIN A
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ML1 ;
+        POLYGON 1.000 9.700  1.000 11.700  3.000 11.700  3.000 9.700  1.000 9.700 ;
+      LAYER ML2 ;
+        POLYGON 1.000 9.700  1.000 11.700  3.000 11.700  3.000 9.700  1.000 9.700 ;
+    END
+  END A
+</PRE>
+- qrouterでは、RECT、POLYGONと同じようにPATHも認識しているのかと思い込んだが違っていた。
+ /usr/local/src/qrouter-1.3.91/lef.cをよく見ると、
+<PRE>
+ 	    case LEF_WIDTH:
+		LefEndStatement(f);
+		break;
+	    case LEF_PATH:
+		LefEndStatement(f);
+		break;
+</PRE>
+となっており無視している。placeの/usr/local/share/qflow/scripts/blif2cel.tclでもPATHは無視している。
+
+- an31とan41にだけDIRECTION文が入ってるので無視する
+- an31とan41は、Windowsの"\r”コードが入ってるので抜く
+
+# placerでLEFがらみのエラーで止まる場合の対策
+- 以下のように問題となっているprocに    puts [info level 0]を入れる
+<PRE>
+proc parse_port {pinname macroname leffile ox oy} {
+    puts [info level 0]
+</PRE>
+そうすると、どのPORTの処理が問題かわかる。
+
 ## TODO
 - OR1.shファイルの見直し
 - .parファイル（Placer=GrayWolfに渡すパラメータ）の見直し

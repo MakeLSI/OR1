@@ -8,6 +8,7 @@ cell = nil
 lef_cells = []
 File.read(File.join(File.dirname(__FILE__),'./OR1_stdcells.lib')).each_line{|l|
 #  puts l
+  l.sub!("\r", '')
   if l=~/cell\((\S+)\)/
     cell = $1
     $direction[cell]={}
@@ -28,6 +29,7 @@ def read_lef lines
   width = nil
   layer = nil
   lines.each_line{|l|
+    l.sub!("\r", '')
     if flag_pin
       if pl=~/USE SIGNAL/ 
         puts "    USE SIGNAL ;\n"
@@ -38,7 +40,7 @@ def read_lef lines
           ports[layer] << pl.chomp + l.strip.sub(/  ;$/, ' ;') + "\n"
           l = nil
       elsif pl=~/(RECT |PATH |POLYGON )/
-        ports[layer] << pl.sub(/  ;$/, ' ;')
+        ports[layer] << pl.sub(/ +;$/, ' ;')
       elsif pl=~/WIDTH +(\S+)/
         ports[layer] << pl.sub(/  ;$/, ' ;')
       elsif pl=~ /PORT/
@@ -48,7 +50,11 @@ def read_lef lines
         ports.each_pair{|layer, geoms|
           puts "      LAYER #{layer} ;"
           geoms.each{|g|
-            puts g
+            if g =~ /WIDTH +(\S+)/
+              width = $1
+            else
+              print_geom g, width
+            end
           }
         }
         puts '    END'
@@ -69,12 +75,60 @@ def read_lef lines
       dir = $direction[cell][pin] || 'INOUT' # for vdd, gnd, etc. 
       puts "    DIRECTION #{dir} ;" if dir
       flag_pin = true
+    elsif pl =~ /(PATH|POLYGON)[^;]*$/
+      print_geom pl.chomp + l.strip.sub(/ +;$/, ' ;') + "\n", width, 6
+      l = nil
+    elsif pl =~ /(PATH|RECT|POLYGON)/
+      print_geom pl, width, 6
+    elsif pl =~ /WIDTH +(\S+)/
+      width = $1
     else
       puts pl if pl
     end
     pl = l
   }
   puts pl
+end
+
+def print_geom g, width, leading_spaces=8
+  if g =~ /PATH +(\S+) +(\S+) +(\S+) +(\S+) +(.*);/
+    x1=$1
+    y1=$2
+    x2=$3
+    y2=$4
+    rest = $5.strip
+    print ' '*leading_spaces
+    puts path2rect(width, x1, y1, x2, y2)
+    x1 = x2
+    y1 = y2
+    while rest.size > 0
+      rest =~ /(\S+) +(\S+) *(.*)/
+      x2 = $1
+      y2 = $2
+      rest = $3
+      print ' '*leading_spaces
+      puts path2rect(width, x1, y1, x2, y2)
+      x1 = x2
+      y1 = y2
+    end
+  else
+    puts g
+  end
+end  
+
+def path2rect width, x1, y1, x2, y2
+  if y1 == y2
+    xll = x1.to_f
+    yll = y1.to_f - width.to_f/2.0
+    xur = x2.to_f
+    yur = y1.to_f + width.to_f/2.0
+  elsif x1 == x2
+    xll = x1.to_f - width.to_f/2.0
+    yll = y1.to_f
+    xur = x1.to_f + width.to_f/2.0
+    yur = y2.to_f
+  end
+  "RECT #{[xll, xur].min.round(2)} #{[yll, yur].min.round(2)} #{[xll, xur].max.round(2)} #{[yll, yur].max.round(2)} ;"
 end
 
 def extract_macro name, lines 
@@ -92,11 +146,8 @@ end
 
 if ARGV[0].nil?
   lines =<<EOF
-    PORT
-      LAYER ML1 ;
         WIDTH 1.000 ;
         PATH 4.800 20.500 4.800 18.000 ;
-    END
 EOF
   
   puts path_to_rect(lines)
@@ -104,11 +155,8 @@ EOF
   debugger
   
   lines =<<EOF
-    PORT
-      LAYER ML1 ;
         WIDTH 1.000 ;
         PATH 4.800 20.500 4.800 18.000 7.500 18.000 7.500 6.500 6.800 6.500 6.800 3.800 ;
-    END
 EOF
   
   puts path_to_rect(lines)
