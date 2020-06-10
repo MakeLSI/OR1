@@ -16,7 +16,7 @@ OpenRule1umベースのスタンダードセルを使って、QflowでVeriloHDL�
 - Qflowのライブラリの一式を追加
 /usr/local/share/qflow/tech で、
 `git clone https://github.com/MakeLSI/OpenRule1um_QflowOR1.git`
-を実行するとOR1というディレクトリが作られます。この名前は変更しないでください。（必要ならばsudoで行う）
+を実行するとOR1というディレクトリが作られます。この名前は変更しないでください。（必要ならばsudoで行う）※インストールの仕方は要確認・要調整（ディレクトリ名・ディレクトリ構成など）
 
 ## 使い方
 

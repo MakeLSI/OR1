@@ -1,0 +1,35 @@
+; structure creation     : 25/5/20 (10:55:14)
+; structure modification : 4/6/20 (14:47:1)
+; structure name : inv1
+L 1
+B -15 175 80 310
+L 3
+B 5 205 55 265
+B 5 25 55 45
+L 5
+W 10 30 270 30 20
+L 8
+W 20 15 215 15 285
+W 20 15 10 15 35
+B -5 -10 70 10
+B -5 280 70 300
+W 10 45 205 45 35
+B -5 280 70 300
+L 10
+L 14
+B -5 -10 70 10
+B 0 0 65 290
+L 18
+B 0 200 65 270
+L 19
+B 0 20 65 50
+C 45 235 1 1 0 dcont
+C 15 255 1 1 0 dcont
+C 45 255 1 1 0 dcont
+C 15 0 1 1 0 psubcont
+C 15 235 1 1 0 dcont
+C 15 35 1 1 0 dcont
+C 45 35 1 1 0 dcont
+C 15 290 1 1 0 nsubcont
+C 15 215 1 1 0 dcont
+C 45 215 1 1 0 dcont

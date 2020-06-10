@@ -1,0 +1,68 @@
+# C:/Users/akita/Documents/dff1m2_r.lef
+# Created by Glade release version 4.7.35 compiled on May 19 2020 19:14:35
+# Run by akita on host LAPTOP-E0CJ65QR at Wed Jun  3 17:34:15 2020
+
+VERSION 5.6 ;
+NAMESCASESENSITIVE ON ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/"  ;
+UNITS
+    DATABASE MICRONS 1000 ;
+END UNITS
+
+MACRO dff1m2_r
+    CLASS core ;
+    FOREIGN dff1m2_r -1.500 -1.500 ;
+    ORIGIN 1.500 1.500 ;
+    SIZE 61.500 BY 32.500 ;
+    PIN CK
+        DIRECTION INPUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER ML2 ;
+        RECT 1.000 14.500 3.000 16.500 ;
+        LAYER ML1 ;
+        RECT 1.000 14.500 3.000 16.500 ;
+        END
+    END CK
+    PIN VDD
+        DIRECTION INOUT ;
+        USE POWER ;
+        PORT
+        LAYER ML1 ;
+        RECT -0.500 28.000 59.000 30.000 ;
+        END
+    END VDD
+    PIN D
+        DIRECTION INPUT ;
+        USE POWER ;
+        PORT
+        LAYER ML2 ;
+        RECT 17.500 9.000 19.500 11.000 ;
+        LAYER ML1 ;
+        RECT 17.500 9.000 19.500 11.000 ;
+        END
+    END D
+    PIN Q
+        DIRECTION OUTPUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER ML2 ;
+        RECT 56.000 10.500 58.000 12.500 ;
+        LAYER ML1 ;
+        RECT 56.000 10.500 58.000 12.500 ;
+        END
+    END Q
+    PIN VSS
+        DIRECTION INOUT ;
+        USE GROUND ;
+        PORT
+        LAYER ML1 ;
+        RECT -0.500 -1.000 59.000 1.000 ;
+        END
+    END VSS
+    OBS
+    END
+END dff1m2_r
+
+END LIBRARY

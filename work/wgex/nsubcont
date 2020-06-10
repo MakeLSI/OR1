@@ -1,0 +1,12 @@
+; structure creation     : 7/5/20 (14:28:54)
+; structure modification : 4/6/20 (14:47:1)
+; structure name : nsubcont
+L 1
+B -20 -20 20 20
+L 13
+; [strans] magnification(x 0.3) not supported
+L 19
+B -15 -15 15 15
+L 103
+B -20 -20 20 20
+C 0 0 1 1 0 dcont

@@ -1,0 +1,58 @@
+# C:/Users/akita/Documents/inv8.lef
+# Created by Glade release version 4.7.35 compiled on May 19 2020 19:14:35
+# Run by akita on host LAPTOP-E0CJ65QR at Wed Jun  3 17:36:33 2020
+
+VERSION 5.6 ;
+NAMESCASESENSITIVE ON ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/"  ;
+UNITS
+    DATABASE MICRONS 1000 ;
+END UNITS
+
+MACRO inv8
+    CLASS core ;
+    FOREIGN inv8 -1.500 -1.500 ;
+    ORIGIN 1.500 1.500 ;
+    SIZE 30.500 BY 32.500 ;
+    PIN YB
+        DIRECTION OUTPUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER ML2 ;
+        RECT 22.000 10.500 24.000 12.500 ;
+        LAYER ML1 ;
+        RECT 22.000 10.500 24.000 12.500 ;
+        END
+    END YB
+    PIN VDD
+        DIRECTION INOUT ;
+        USE POWER ;
+        PORT
+        LAYER ML1 ;
+        RECT -0.500 28.000 28.000 30.000 ;
+        END
+    END VDD
+    PIN VSS
+        DIRECTION INOUT ;
+        USE GROUND ;
+        PORT
+        LAYER ML1 ;
+        RECT -0.500 -1.000 28.000 1.000 ;
+        END
+    END VSS
+    PIN A
+        DIRECTION INPUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER ML2 ;
+        RECT 1.000 14.500 3.000 16.500 ;
+        LAYER ML1 ;
+        RECT 1.000 14.500 3.000 16.500 ;
+        END
+    END A
+    OBS
+    END
+END inv8
+
+END LIBRARY

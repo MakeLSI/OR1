@@ -1,0 +1,69 @@
+        LAYER ML1 ;
+        WIDTH 2 ;
+        PATH 1.5 21.5 1.5 28.5 ;
+        WIDTH 2 ;
+        PATH 10.5 0.0 10.5 3.5 ;
+        WIDTH 1.4 ;
+        PATH 4.5 22.3 4.5 25.5 ;
+        WIDTH 2 ;
+        PATH 7.5 21.5 7.5 29.0 ;
+        WIDTH 1 ;
+        PATH 4.5 21.5 4.5 18.0 13.5 18.0 13.5 8.0 1.5 8.0 1.5 3.8 ;
+        WIDTH 1 ;
+        PATH 10.5 21.5 10.5 18.0 ;
+        WIDTH 1.4 ;
+        PATH 10.5 22.3 10.5 25.5 ;
+        WIDTH 2 ;
+        PATH 13.5 21.5 13.5 28.5 ;
+        WIDTH 1.4 ;
+        PATH 13.5 22.3 13.5 25.5 ;
+        WIDTH 1 ;
+        PATH 16.5 21.5 16.5 5.0 14.0 5.0 14.0 3.8 ;
+        WIDTH 1.4 ;
+        PATH 16.5 22.3 16.5 25.5 ;
+        
+        LAYER ML1 ;
+      # VIA 16.5 21.5 dcont
+        RECT 15.5 20.5 17.5 22.5 ;
+      # VIA 14 10.5 pcont
+        RECT 13 9.5 15 11.5 ;
+      # VIA 4.5 25.5 dcont
+        RECT 3.5 24.5 5.5 26.5 ;
+      # VIA 10.5 25.5 dcont
+        RECT 9.5 24.5 11.5 26.5 ;
+      # VIA 10.5 3.5 dcont
+        RECT 9.5 2.5 11.5 4.5 ;
+      # VIA 13.5 3.5 dcont
+        RECT 12.5 2.5 14.5 4.5 ;
+      # VIA 7.5 21.5 dcont
+        RECT 6.5 20.5 8.5 22.5 ;
+      # VIA 1.5 21.5 dcont
+        RECT 0.5 20.5 2.5 22.5 ;
+      # VIA 4.5 23.5 dcont
+        RECT 3.5 22.5 5.5 24.5 ;
+      # VIA 1.5 3.5 dcont
+        RECT 0.5 2.5 2.5 4.5 ;
+      # VIA 1.5 25.5 dcont
+        RECT 0.5 24.5 2.5 26.5 ;
+      # VIA 16.5 25.5 dcont
+        RECT 15.5 24.5 17.5 26.5 ;
+      # VIA 16.5 23.5 dcont
+        RECT 15.5 22.5 17.5 24.5 ;
+      # VIA 10.5 21.5 dcont
+        RECT 9.5 20.5 11.5 22.5 ;
+      # VIA 13.5 21.5 dcont
+        RECT 12.5 20.5 14.5 22.5 ;
+      # VIA 7.5 25.5 dcont
+        RECT 6.5 24.5 8.5 26.5 ;
+      # VIA 10.5 23.5 dcont
+        RECT 9.5 22.5 11.5 24.5 ;
+      # VIA 4.5 21.5 dcont
+        RECT 3.5 20.5 5.5 22.5 ;
+      # VIA 7.5 23.5 dcont
+        RECT 6.5 22.5 8.5 24.5 ;
+      # VIA 13.5 25.5 dcont
+        RECT 12.5 24.5 14.5 26.5 ;
+      # VIA 13.5 23.5 dcont
+        RECT 12.5 22.5 14.5 24.5 ;
+      # VIA 1.5 23.5 dcont
+        RECT 0.5 22.5 2.5 24.5 ;

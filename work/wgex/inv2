@@ -1,0 +1,47 @@
+; structure creation     : 7/5/20 (14:28:54)
+; structure modification : 4/6/20 (14:47:1)
+; structure name : inv2
+L 1
+B -15 175 110 310
+L 3
+B 5 205 85 265
+B 5 25 85 45
+L 5
+W 10 60 270 60 20
+W 10 30 270 30 160 60 160
+W 10 30 20 30 150 60 150
+L 8
+B -5 280 100 300
+W 20 75 10 75 35
+W 20 75 215 75 285
+W 20 15 215 15 285
+W 20 15 10 15 35
+B -5 -10 100 10
+B -5 280 100 300
+W 14 45 223 45 255
+W 10 45 205 45 38
+B -5 -10 100 10
+L 10
+L 13
+; [strans] magnification(x 0.3) not supported
+; [strans] magnification(x 0.3) not supported
+L 14
+B 0 0 95 290
+L 18
+B 0 200 95 270
+L 19
+B 0 20 95 50
+C 75 35 1 1 0 dcont
+C 45 235 1 1 0 dcont
+C 50 0 1 1 0 psubcont
+C 15 235 1 1 0 dcont
+C 75 215 1 1 0 dcont
+C 15 35 1 1 0 dcont
+C 75 235 1 1 0 dcont
+C 45 35 1 1 0 dcont
+C 15 215 1 1 0 dcont
+C 50 290 1 1 0 nsubcont
+C 75 255 1 1 0 dcont
+C 45 255 1 1 0 dcont
+C 15 255 1 1 0 dcont
+C 45 215 1 1 0 dcont

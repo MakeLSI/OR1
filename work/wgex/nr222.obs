@@ -1,0 +1,56 @@
+        LAYER ML1 ;
+        
+        WIDTH 2 ;
+        PATH 11.5 1.0 11.5 3.5 ;
+        WIDTH 1.4 ;
+        PATH 10.5 20.0 10.5 24.0 ;
+        WIDTH 1 ;
+        PATH 10.5 20.5 10.5 17.5 13.5 17.5 13.5 6.5 7.0 6.5 7.0 3.5 ;
+        WIDTH 1 ;
+        PATH 1.5 24.0 1.5 17.5 7.5 17.5 7.5 26.5 13.5 26.5 13.5 20.0 ;
+        
+        
+        WIDTH 2 ;
+        PATH 4.5 20.0 4.5 28.5 ;
+        WIDTH 2 ;
+        PATH 1.5 1.0 1.5 3.5 ;
+        WIDTH 1.4 ;
+        PATH 1.5 20.8 1.5 24.0 ;
+        
+        LAYER ML1 ;
+      # VIA 10.5 24 dcont
+        RECT 9.5 23 11.5 25 ;
+      # VIA 10.5 20 dcont
+        RECT 9.5 19 11.5 21 ;
+      # VIA 6.5 3.5 dcont
+        RECT 5.5 2.5 7.5 4.5 ;
+      # VIA 11.5 3.5 dcont
+        RECT 10.5 2.5 12.5 4.5 ;
+      # VIA 13.5 24 dcont
+        RECT 12.5 23 14.5 25 ;
+      # VIA 1.5 24 dcont
+        RECT 0.5 23 2.5 25 ;
+      # VIA 7.5 20 dcont
+        RECT 6.5 19 8.5 21 ;
+      # VIA 1.5 20 dcont
+        RECT 0.5 19 2.5 21 ;
+      # VIA 7.5 22 dcont
+        RECT 6.5 21 8.5 23 ;
+      # VIA 13.5 22 dcont
+        RECT 12.5 21 14.5 23 ;
+      # VIA 4.5 22 dcont
+        RECT 3.5 21 5.5 23 ;
+      # VIA 1.5 3.5 dcont
+        RECT 0.5 2.5 2.5 4.5 ;
+      # VIA 13.5 20 dcont
+        RECT 12.5 19 14.5 21 ;
+      # VIA 10.5 22 dcont
+        RECT 9.5 21 11.5 23 ;
+      # VIA 7.5 24 dcont
+        RECT 6.5 23 8.5 25 ;
+      # VIA 4.5 20 dcont
+        RECT 3.5 19 5.5 21 ;
+      # VIA 1.5 22 dcont
+        RECT 0.5 21 2.5 23 ;
+      # VIA 4.5 24 dcont
+        RECT 3.5 23 5.5 25 ;

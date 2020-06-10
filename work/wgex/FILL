@@ -1,0 +1,18 @@
+; structure creation     : 2/6/20 (9:25:23)
+; structure modification : 4/6/20 (14:47:1)
+; structure name : FILL
+L 1
+B -15 175 45 310
+L 8
+B -5 -10 35 10
+B -5 280 35 300
+B -5 -10 35 10
+B -5 280 35 300
+L 10
+L 13
+; [strans] magnification(x 0.3) not supported
+; [strans] magnification(x 0.3) not supported
+L 14
+B 0 0 30 290
+C 15 290 1 1 0 nsubcont
+C 15 0 1 1 0 psubcont
