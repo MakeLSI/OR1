@@ -1,57 +1,48 @@
-# osu035.par --- Parameter file for GrayWolf
+# OR1.par --- Parameter file for GrayWolf
 # NOTE:  all distance units are in centimicrons unless otherwise stated
 
 RULES
     # values are resistance in ohms/sq and capacitance in fF/um^2
-    layer metal1 0.07 0.030 horizontal
-    layer metal2 0.07 0.017 vertical
-    layer metal3 0.07 0.006 horizontal
-    layer metal4 0.04 0.004 vertical
+    layer ML1 0.07 0.030 horizontal
+    layer ML2 0.07 0.017 vertical
+    layer ML3 0.07 0.006 horizontal
 
-    via via12 metal1 metal2
-    via via23 metal2 metal3
-    via via34 metal3 metal4
+    via VIA12 ML1 ML2
+    via VIA23 ML2 ML3
 
-    width metal1 60
-    width metal2 60
-    width metal3 60
-    width metal4 120
-    width via12 60
-    width via23 60
-    width via34 120
+    width ML1 100
+    width ML2 100
+    width ML3 100
+    width VIA12 100
+    width VIA23 100
 
     # Set spacing = track pitch - width, so that GrayWolf places pins
     # on the right pitch.
     # Pitches are (in um):
-    # metal1 = 200,  metal2 = 160,  metal3 = 200,  metal4 = 320
 
-    spacing metal1 metal1 140
-    spacing metal2 metal2 100
-    spacing metal3 metal3 140
-    spacing metal4 metal4 200
+    spacing ML1 ML1 100
+    spacing ML2 ML2 100
+    spacing ML3 ML3 100
 
     # Stacked vias allowed
-    spacing via12 via23 0
-    spacing via23 via34 0
+    spacing VIA12 VIA23 1
 
-    overhang via12 metal1 8
-    overhang via12 metal2 6
+    overhang VIA12 ML1 50
+    overhang VIA12 ML2 50
 
-    overhang via23 metal2 8
-    overhang via23 metal3 6
+    overhang VIA23 ML2 50
+    overhang VIA23 ML3 50
 
-    overhang via34 metal3 14
-    overhang via34 metal4 16
 ENDRULES
 
 *vertical_wire_weight : 1.0
 *vertical_path_weight : 1.0
 *padspacing           : variable
 *rowSep		      : 0.0   0
-*track.pitch	      : 160
-*minimum_pad_space    : 240
-*gridX		      : 160
-*gridY		      : 200
+*track.pitch	      : 200
+*minimum_pad_space    : 200
+*gridX		      : 50
+*gridY		      : 50
 *gridOffsetX 	      : 0
 *gridOffsetY 	      : 0
 *graphics.wait        : off
@@ -60,7 +51,7 @@ ENDRULES
 
 TWMC*chip.aspect.ratio : 0.75
 
-TWSC*feedThruWidth    : 160 layer 1
+TWSC*feedThruWidth    : 200 layer 1
 TWSC*do.global.route  : on
 TWSC*ignore_feeds     : true
 TWSC*call_row_evener	: true
