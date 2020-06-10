@@ -58,12 +58,24 @@ LAYER ML3
  CAPACITANCE	CPERSQDIST 7e-06 ;
 END ML3
 
+LAYER DM_VIA1
+ TYPE	CUT ;
+ SPACING	1.0 ;
+END DM_VIA1
+
+LAYER DM_VIA2
+ TYPE	CUT ;
+ SPACING	1.0 ;
+END DM_VIA2
+
 VIA M2_M1 DEFAULT
  LAYER ML1 ;
   RECT -1.0 -1.0 1.0 1.0 ;
  LAYER VIA1 ;
   RECT -0.5 -0.5 0.5 0.5 ;
  LAYER ML2 ;
+  RECT -1.0 -1.0 1.0 1.0 ;
+ LAYER DM_VIA1 ;
   RECT -1.0 -1.0 1.0 1.0 ;
 END M2_M1
 
@@ -73,6 +85,8 @@ VIA M3_M2 DEFAULT
  LAYER VIA2 ;
   RECT -0.5 -0.5 0.5 0.5 ;
  LAYER ML3 ;
+  RECT -1.0 -1.0 1.0 1.0 ;
+ LAYER DM_VIA2 ;
   RECT -1.0 -1.0 1.0 1.0 ;
 END M3_M2
 
@@ -2731,18 +2745,14 @@ MACRO inv1
     CLASS core ;
     FOREIGN inv1 0.0 0.0 ;
     ORIGIN 0.0 0.0 ;
-#    SYMMETRY X ;
+#    SYMMETRY XY ;
     SIZE 6.5 BY 29.0 ;
     SITE core ;
     PIN YB
         DIRECTION OUTPUT ;
-#        USE SIGNAL ;
         PORT
         LAYER ML1 ;
-#              RECT 4.0 10.0 6.0 12.0 ;
 	      RECT 4.0 3.0 5.0 21.0 ;
-#        LAYER ML2 ;
-#              RECT 4.0 10.5 6.0 12.5 ;
         END
     END YB
     PIN VDD
@@ -2774,6 +2784,7 @@ MACRO inv1
         END
     END A
     OBS
+	LAYER ML1 ;
               RECT 3.5 2.5 5.5 4.5 ;
               RECT 3.5 20.5 5.5 26.5 ;
     END
@@ -3144,12 +3155,10 @@ MACRO na21
 #              RECT 6.0 12.0 8.0 14.0 ;
 #	       WIDTH 1.0 ;
 #	       PATH 5.0 20.5 5.0 18.0 7.5 18.0 7.5 6.5 6.5 6.5 6.5 3.5 ;
-             RECT 5.5 2.5 7.5 4.5 ;
 	      RECT 6.0 3.0 7.0 7.0 ;
 	      RECT 7.0 6.0 8.0 18.5 ;
 	      RECT 4.5 17.5 8.0 18.5 ;
 	      RECT 4.5 17.5 5.5 21.0 ;
-             RECT 3.5 20.5 5.5 26.5 ;
         END
     END YB
     PIN B
@@ -3188,6 +3197,9 @@ MACRO na21
         END
     END VSS
     OBS
+	LAYER ML1 ;
+             RECT 3.5 20.5 5.5 26.5 ;
+             RECT 5.5 2.5 7.5 4.5 ;
     END
 END na21
 MACRO na212
@@ -6793,7 +6805,7 @@ MACRO sff1m2_r
         USE CLOCK ;
         PORT
         LAYER ML2 ;
-        RECT 1.0 14.5 3.0 16.5 ;
+         RECT 1.0 14.5 3.0 16.5 ;
         LAYER ML1 ;
         RECT 1.0 14.5 3.0 16.5 ;
         END
