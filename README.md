@@ -32,7 +32,8 @@ OpenRule1umベースのスタンダードセルを使って、QflowでVeriloHDL�
 - KLayoutでtest.defとOR1_stdcells.lefを読み込んで確認する手順
 - GDSをはめる(lefdef2gds.rb)
 - LVSとDRC (GDSをGladeで読み込んでDRCはできる。LVSのために、まず回路抽出はOKだが、ネットリストが階層構造（スタセルのsubcktをセル呼び出ししている）のため、GladeではLVSはかけられない模様。netgenに進むか？
-
+- DRCエラーが出ないようにする（少なくともX反転時にDIFFが狭すぎるエラーが出る）
+- いまはinv1, buf1, na21のみを整備した状態なので、残りのスタセルもLEFを整備する
 
 # Author
 
