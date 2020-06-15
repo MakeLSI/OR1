@@ -1,6 +1,6 @@
 # OR1_stdcells.lef
 # Created by Glade release version 4.7.35 compiled on May 19 2020 19:14:35
-# Run & Edited by akita11, 200603
+# Run & Edited by akita11, 200603, 200615
 
 version 5.6 ;
 NAMESCASESENSITIVE ON ;
@@ -105,13 +105,13 @@ END M3_M2
 # END
 #END pcont
 
-MACRO VIA1
- CLASS CORE ;
- SIZE 2.0 BY 2.0 ;
- ORIGIN 0.0 0.0 ;
- OBS
- END
-END VIA1
+#MACRO VIA1
+# CLASS CORE ;
+# SIZE 2.0 BY 2.0 ;
+# ORIGIN 0.0 0.0 ;
+# OBS
+# END
+#END VIA1
 
 VIARULE viagen21 GENERATE
  LAYER ML1 ;
@@ -570,61 +570,54 @@ MACRO buf1
     CLASS core ;
     FOREIGN buf1 0.0 0.0 ;
     ORIGIN 0.0 0.0 ;
-    SIZE 9.5 BY 29.0 ;
+    SIZE 10.0 BY 29.0 ;
 #    SYMMETRY X ;
-    PIN Y
-        DIRECTION OUTPUT ;
-#        USE SIGNAL ;
-        PORT
-#        LAYER ML2 ;
-#	      RECT 7.0 14.0 9.0 16.0 ;
-        LAYER ML1 ;
-#              RECT 7.0 14.0 9.0 16.0 ;
-              RECT 7.0 3.5 8.0 22.0 ;
-        END
-    END Y
     PIN VDD
         DIRECTION INOUT ;
         USE POWER ;
         PORT
         LAYER ML1 ;
-       	      RECT -0.5 28.0 10.0 30.0 ;
-              RECT 3.5 20.5 5.5 29.5 ;
+        RECT -0.5 28.0 10.5 30.0 ;
+	RECT 4.0 20.5 6.0 30.0 ;
         END
     END VDD
+    PIN Y
+        DIRECTION OUTPUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER ML1 ;
+        RECT 7.0 4.5 8.0 20.5 ;
+	RECT 7.0 2.5 9.0 4.5 ;
+	RECT 7.0 20.5 9.0 26.5 ;
+        END
+    END Y
     PIN VSS
         DIRECTION INOUT ;
         USE GROUND ;
         PORT
         LAYER ML1 ;
-              RECT -0.5 -1.0 10.0 1.0 ;
-	      RECT 3.5 0.0 5.5 4.5 ;
+        RECT -0.5 -1.0 10.5 1.0 ;
+	RECT 4.0 -1.0 6.0 4.5 ;
         END
     END VSS
     PIN A
         DIRECTION INPUT ;
-#        USE SIGNAL ;
+        USE SIGNAL ;
         PORT
-#        LAYER ML2 ;
-#              RECT 1.0 14.0 3.0 16.0 ;
         LAYER ML1 ;
-              RECT 1.0 14.5 3.0 16.5 ;
+        RECT 1.0 14.0 3.0 16.0 ;
         END
     END A
     OBS
         LAYER ML1 ;
-	WIDTH 1.0 ;
-	PATH 1.5 21.5 1.5 18.0 4.5 18.0 4.5 7.5 2.0 7.5 2.0 3.8 ;
-        RECT 6.5 2.5 8.5 4.5 ;
-        RECT 6.5 20.5 8.5 26.5 ;
-#	RECT 1.5 3.0 2.5 8.0 ;
-#	RECT 1.5 7.0 5.0 8.0 ;
-#	RECT 4.0 7.0 5.0 18.5 ;
-#	RECT 1.0 17.5 5.0 18.5 ;
-#	RECT 1.0 17.5 2.0 22.0 ;
-#       RECT 4 10.5 6 12.5 ;
-       RECT 0.5 2.5 2.5 4.5 ;
-       RECT 0.5 20.5 2.5 26.5 ;
+	RECT 1.0 2.5 3.0 4.5 ;
+	RECT 2.0 4.5 3.0 8.0 ;
+	RECT 3.0 7.0 5.0 8.0 ;
+	RECT 4.0 7.0 5.0 18.0 ;
+	RECT 4.0 10.0 6.0 12.0 ;
+	RECT 2.0 17.0 4.0 18.0 ;
+	RECT 2.0 18.0 3.0 20.5 ;
+	RECT 1.0 20.5 3.0 26.5 ;
     END
 END buf1
 MACRO buf2
@@ -2746,13 +2739,16 @@ MACRO inv1
     FOREIGN inv1 0.0 0.0 ;
     ORIGIN 0.0 0.0 ;
 #    SYMMETRY XY ;
-    SIZE 6.5 BY 29.0 ;
+    SIZE 7.0 BY 29.0 ;
     SITE core ;
     PIN YB
         DIRECTION OUTPUT ;
+        USE SIGNAL ;
         PORT
         LAYER ML1 ;
-	      RECT 4.0 3.0 5.0 21.0 ;
+        RECT 4.0 4.5 5.0 20.5 ;
+	RECT 4.0 2.5 6.0 4.5 ;
+	RECT 4.0 20.5 6.0 26.5 ;
         END
     END YB
     PIN VDD
@@ -2760,8 +2756,8 @@ MACRO inv1
         USE POWER ;
         PORT
         LAYER ML1 ;
-              RECT -0.5 28.0 7.0 30.0 ;
-              RECT 0.5 20.5 2.5 29.5 ;
+        RECT 1.0 20.5 3.0 30.0 ;
+        RECT -0.5 28.0 7.5 30.0 ;
         END
     END VDD
     PIN VSS
@@ -2769,24 +2765,19 @@ MACRO inv1
         USE GROUND ;
         PORT
         LAYER ML1 ;
-              RECT -0.5 -1.0 7.0 1.0 ;
-              RECT 0.5 0.0 2.5 4.5 ;
+        RECT -0.5 -1.0 7.0 1.0 ;
+	RECT 1.0 -1.0 3.0 4.5 ;
         END
     END VSS
     PIN A
         DIRECTION INPUT ;
         USE SIGNAL ;
         PORT
-#        LAYER ML2 ;
-#	      RECT 1.0 14.0 3.0 16.0 ;
         LAYER ML1 ;
-              RECT 1.0 14.5 3.0 16.5 ;
+        RECT 1.0 14.0 3.0 16.0 ;
         END
     END A
     OBS
-	LAYER ML1 ;
-              RECT 3.5 2.5 5.5 4.5 ;
-              RECT 3.5 20.5 5.5 26.5 ;
     END
 END inv1
 MACRO inv2
@@ -3146,45 +3137,43 @@ MACRO na21
     FOREIGN na21 0.0 0.0 ;
 #    SYMMETRY X ;
     ORIGIN 0.0 0.0 ;
-    SIZE 9.5 BY 29.0 ;
+    SIZE 10.0 BY 29.0 ;
     PIN YB
         DIRECTION OUTPUT ;
         USE SIGNAL ;
         PORT
         LAYER ML1 ;
-#              RECT 6.0 12.0 8.0 14.0 ;
-#	       WIDTH 1.0 ;
-#	       PATH 5.0 20.5 5.0 18.0 7.5 18.0 7.5 6.5 6.5 6.5 6.5 3.5 ;
-	      RECT 6.0 3.0 7.0 7.0 ;
-	      RECT 7.0 6.0 8.0 18.5 ;
-	      RECT 4.5 17.5 8.0 18.5 ;
-	      RECT 4.5 17.5 5.5 21.0 ;
+	RECT 6.0 2.5 8.0 4.5 ;
+	RECT 7.0 4.5 8.0 18.5 ;
+	RECT 5.0 17.5 7.0 18.5 ;
+	RECT 5.0 17.5 6.0 20.5 ;
+	RECT 4.0 20.5 6.0 26.5 ;
         END
     END YB
-    PIN B
-        DIRECTION INPUT ;
-        USE SIGNAL ;
-        PORT
-        LAYER ML1 ;
-              RECT 4.0 8.5 6.0 10.5 ;
-        END
-    END B
     PIN VDD
         DIRECTION INOUT ;
         USE POWER ;
         PORT
         LAYER ML1 ;
-              RECT -0.5 28.0 10.0 30.0 ;
-              RECT 0.5 20.5 2.5 29.5 ;
-              RECT 6.5 20.5 8.5 29.5 ;
+        RECT -0.5 28.0 10.5 30.0 ;
+	RECT 1.0 20.5 3.0 30.0 ;
+	RECT 7.0 20.5 9.0 30.0 ;
         END
     END VDD
+    PIN B
+        DIRECTION INPUT ;
+        USE SIGNAL ;
+        PORT
+        LAYER ML1 ;
+        RECT 4.0 8.0 6.0 10.0 ;
+        END
+    END B
     PIN A
         DIRECTION INPUT ;
         USE SIGNAL ;
         PORT
         LAYER ML1 ;
-              RECT 2.0 14.5 4.0 16.5 ;
+        RECT 2.0 14.0 4.0 16.0 ;
         END
     END A
     PIN VSS
@@ -3192,14 +3181,11 @@ MACRO na21
         USE GROUND ;
         PORT
         LAYER ML1 ;
-              RECT -0.5 -1.0 10.0 1.0 ;
-	      RECT 0.5 0.0 2.5 4.5 ;
+        RECT -0.5 -1.0 10.5 1.0 ;
+	RECT 1.0 -1.0 3.0 4.5 ;
         END
     END VSS
     OBS
-	LAYER ML1 ;
-             RECT 3.5 20.5 5.5 26.5 ;
-             RECT 5.5 2.5 7.5 4.5 ;
     END
 END na21
 MACRO na212
@@ -3211,10 +3197,7 @@ MACRO na212
         DIRECTION OUTPUT ;
         USE SIGNAL ;
         PORT
-        LAYER ML2 ;
-        RECT 10.0 8.5 12.0 10.5 ;
         LAYER ML1 ;
-        RECT 10.0 8.5 12.0 10.5 ;
         END
     END YB
     PIN A1
@@ -7182,6 +7165,5 @@ MACRO sff1m2_r
         RECT 3.5 20.5 5.5 22.5 ;
     END
 END sff1m2_r
-
 
 END LIBRARY
