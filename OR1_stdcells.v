@@ -24,7 +24,7 @@ endmodule
 
 `timescale 1ns/10ps
 `celldefine
-module dff1 (CLK, D, Q);
+module dff1_r (CLK, D, Q);
 input  CLK ;
 input  D ;
 output Q ;
